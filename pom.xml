@@ -115,5 +115,18 @@
                 <quarkus.native.enabled>true</quarkus.native.enabled>
             </properties>
         </profile>
+        <profile>
+            <id>native-static</id>
+            <activation>
+                <property>
+                    <name>native-static</name>
+                </property>
+            </activation>
+            <properties>
+                <skipITs>false</skipITs>
+                <quarkus.native.enabled>true</quarkus.native.enabled>
+                <quarkus.native.additional-build-args>--static,--libc=musl</quarkus.native.additional-build-args>
+            </properties>
+        </profile>
     </profiles>
 </project>
