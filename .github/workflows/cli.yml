@@ -71,9 +71,9 @@ jobs:
           uname -m
 
       # musl is only available on linux
-      - if: ${{ matrix.base == 'linux' }}
-        name: Build CLI executable (static)
-        run: mvn -Pnative package -DskipTests
+#      - if: ${{ matrix.base == 'linux' }}
+#        name: Build CLI executable (static)
+#        run: mvn -Pnative package -DskipTests
 
       - if: ${{ matrix.base != 'linux' }}
         name: Build CLI executable (non-static)
