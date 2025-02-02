@@ -15,4 +15,3 @@
 - First release ([Mateusz Witkowski](https://github.com/witx98) @witx98)
 
 
-
