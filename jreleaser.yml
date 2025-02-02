@@ -7,6 +7,7 @@ project:
   version: 1.0.4
   links:
     homepage: https://github.com/witx98/homebrew-test-logchange
+  copyright: "2025 Mateusz Witkowski"
   authors:
     - witx98
 
@@ -18,17 +19,21 @@ release:
     token: "{{GITHUB_TOKEN}}"
 
 distributions:
-  homebrew-test-logchange:
+  darwin_arm64:
     type: BINARY
     artifacts:
       - path: "bins/app-darwinarm64.zip"
         platform: osx-aarch_64
+  darwin_x86_64:
+    type: BINARY
+    artifacts:
       - path: "bins/app-darwinx64.zip"
         platform: osx-x86_64
+  linux_x86_64:
+    type: BINARY
+    artifacts:
       - path: "bins/app-linuxx64.zip"
         platform: linux-x86_64
-    executable:
-      name: app-{{projectVersion}}-runner
 
 packagers:
   brew:
