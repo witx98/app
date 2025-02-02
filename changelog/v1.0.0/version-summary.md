@@ -7,16 +7,11 @@
 <!-- !!! ⚠️ DO NOT MODIFY THIS FILE, YOUR CHANGES WILL BE LOST ⚠️ !!! -->
 
 
-[1.0.1] - 2025-02-02
---------------------
-
-
 [1.0.0] - 2025-02-02
 --------------------
 
 ### Added (1 change)
 
 - First release ([Mateusz Witkowski](https://github.com/witx98) @witx98)
-
 
 
