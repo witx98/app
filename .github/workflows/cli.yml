@@ -137,10 +137,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.WITX_PAT_TOKEN }}
 
       - name: Set up JReleaser
-        uses: jreleaser/setup-jreleaser@v2
-        with:
-          version: latest
-
-      - name: Run JReleaser
-        run: |
-          jreleaser full-release --debug
+        uses: jreleaser/release-action@v2
