@@ -80,7 +80,7 @@ jobs:
         run: mvn -Pnative package -DskipTests
 
       - name: Check target dir
-        run: ls -l /target
+        run: ls -l target
 
       - name: Upload binaries
         uses: actions/upload-artifact@v4
