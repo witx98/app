@@ -18,9 +18,10 @@
     </properties>
 
     <scm>
-        <connection>scm:git:https://github.com/witx98/homebrew-test-logchange.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/witx98/homebrew-test-logchange.git</developerConnection>
-        <url>https://github.com/witx98/homebrew-test-logchange</url>
+        <connection>scm:git:${project.scm.url}</connection>
+        <developerConnection>scm:git:${project.scm.url}</developerConnection>
+        <url>https://github.com/witx98/homebrew-test-logchange.git</url>
+        <tag>HEAD</tag>
     </scm>
 
     <dependencyManagement>

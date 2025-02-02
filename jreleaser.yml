@@ -1,0 +1,44 @@
+project:
+  name: homebrew-test-logchange
+  description: A CLI tool for Linux
+  longDescription: |
+    This is an open-source CLI tool.
+  license: MIT
+  version: {{env.VERSION}}
+  links:
+    homepage: https://github.com/witx98/homebrew-test-logchange
+  authors:
+    - Mateusz
+
+release:
+  github:
+    owner: witx98
+    name: homebrew-test-logchange
+    tagName: "{{projectVersion}}"
+    token: "{{GITHUB_TOKEN}}"
+
+distributions:
+  homebrew-test-logchange:
+    type: BINARY
+    executable:
+      name: logchange
+    artifacts:
+      - path: build/bin/logchange
+        platform: osx-x86_64
+      - path: build/bin/logchange
+        platform: linux-x86_64
+
+packagers:
+  brew:
+    active: ALWAYS
+    formulaName: logchange  # Zgodne z nazwą CLI
+    tap:
+      owner: witx98
+      name: homebrew-test-logchange
+    commitAuthor:
+      name: witx98
+      email: witx90@gmail.com
+    downloadUrl: "https://github.com/witx98/homebrew-test-logchange/releases/download/{{projectVersion}}/app-{{platform}}{{platformArch}}.zip"
+    extraProperties:
+      install: |
+        bin.install "bins/logchange"  # Ekstrahuje plik z folderu 'bins' w ZIP-ie
