@@ -21,11 +21,11 @@ distributions:
   homebrew-test-logchange:
     type: BINARY
     artifacts:
-      - path: "logchange-darwinarm64.zip"
+      - path: "app-darwinarm64.zip"
         platform: macos-arm64
-      - path: "logchange-darwinx64.zip"
+      - path: "app-darwinx64.zip"
         platform: macos-x86_64
-      - path: "logchange-linuxx64.zip"
+      - path: "app-linuxx64.zip"
         platform: linux-x86_64
     executable:
       name: app-{{projectVersion}}-runner
