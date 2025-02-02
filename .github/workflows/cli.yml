@@ -135,3 +135,12 @@ jobs:
           # Cannot use GITHUB_TOKEN because of:
           # https://github.com/orgs/community/discussions/27028
           GITHUB_TOKEN: ${{ secrets.WITX_PAT_TOKEN }}
+
+      - name: Set up JReleaser
+        uses: jreleaser/setup-jreleaser@v2
+        with:
+          version: latest
+
+      - name: Run JReleaser
+        run: |
+          jreleaser full-release --debug
