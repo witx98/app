@@ -22,9 +22,9 @@ distributions:
     type: BINARY
     artifacts:
       - path: "app-darwinarm64.zip"
-        platform: macos-arm64
+        platform: osx-aarch_64
       - path: "app-darwinx64.zip"
-        platform: macos-x86_64
+        platform: osx-x86_64
       - path: "app-linuxx64.zip"
         platform: linux-x86_64
     executable:
@@ -34,7 +34,7 @@ packagers:
   brew:
     active: ALWAYS
     formulaName: app-runner
-    tap:
+    repository:
       owner: witx98
       name: homebrew-test-logchange
     commitAuthor:
