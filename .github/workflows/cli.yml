@@ -1,4 +1,4 @@
-name: CLI Build with GraalVM and Publish to DockerHub
+name: CLI Build with GraalVM Native Image
 
 on:
   push:
