@@ -136,5 +136,8 @@ jobs:
           # https://github.com/orgs/community/discussions/27028
           GITHUB_TOKEN: ${{ secrets.WITX_PAT_TOKEN }}
 
+      - name: List current dir
+        run: ls -l
+
       - name: Set up JReleaser
         uses: jreleaser/release-action@v2
