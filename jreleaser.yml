@@ -3,12 +3,12 @@ project:
   description: A CLI tool for Linux
   longDescription: |
     This is an open-source CLI tool.
-  license: MIT
-  version: {{env.VERSION}}
+  license: APACHE-2.0
+  version: 1.0.4
   links:
     homepage: https://github.com/witx98/homebrew-test-logchange
   authors:
-    - Mateusz
+    - witx98
 
 release:
   github:
@@ -20,25 +20,27 @@ release:
 distributions:
   homebrew-test-logchange:
     type: BINARY
-    executable:
-      name: logchange
     artifacts:
-      - path: build/bin/logchange
-        platform: osx-x86_64
-      - path: build/bin/logchange
+      - path: "logchange-darwinarm64.zip"
+        platform: macos-arm64
+      - path: "logchange-darwinx64.zip"
+        platform: macos-x86_64
+      - path: "logchange-linuxx64.zip"
         platform: linux-x86_64
+    executable:
+      name: app-{{projectVersion}}-runner
 
 packagers:
   brew:
     active: ALWAYS
-    formulaName: logchange  # Zgodne z nazwą CLI
+    formulaName: app-runner
     tap:
       owner: witx98
       name: homebrew-test-logchange
     commitAuthor:
       name: witx98
-      email: witx90@gmail.com
+      email: witxdev@gmail.com
     downloadUrl: "https://github.com/witx98/homebrew-test-logchange/releases/download/{{projectVersion}}/app-{{platform}}{{platformArch}}.zip"
     extraProperties:
       install: |
-        bin.install "bins/logchange"  # Ekstrahuje plik z folderu 'bins' w ZIP-ie
+        bin.install "bins/app-{{platform}}{{platformArch}}/app-{{projectVersion}}-runner"  # Ekstrahuje plik z folderu 'bins' w ZIP-ie
