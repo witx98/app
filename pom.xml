@@ -17,6 +17,12 @@
         <surefire-plugin.version>3.5.0</surefire-plugin.version>
     </properties>
 
+    <scm>
+        <connection>scm:git:https://github.com/witx98/homebrew-test-logchange.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/witx98/homebrew-test-logchange.git</developerConnection>
+        <url>https://github.com/witx98/homebrew-test-logchange</url>
+    </scm>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
