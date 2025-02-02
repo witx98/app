@@ -87,8 +87,8 @@ jobs:
         with:
           name: app-${{ matrix.platform }}
           path: |
-            /target/app*
-            !/target/app*.jar
+            target/app*
+            !target/app*.jar
 
   create-release:
     name: Create Release
