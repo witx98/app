@@ -88,7 +88,7 @@ jobs:
           name: app-${{ matrix.platform }}
           path: |
             target/app*
-            !target/app*.jar
+            !target/app*jar
 
   create-release:
     name: Create Release
@@ -105,7 +105,7 @@ jobs:
           path: ./bins
 
       - name: Package artifacts
-        run: for d in ./bins/*/; do zip -r "./bins/$(basename "$d").zip" "$d"; done
+        run: for d in ./bins/*/; do zip -r "./$(basename "$d").zip" "$d"; done
 
       - name: List artifacts
         run: |
