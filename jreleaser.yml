@@ -4,7 +4,7 @@ project:
   longDescription: |
     This is an open-source CLI tool.
   license: APACHE-2.0
-  version: 1.0.4
+  version: 1.0.10
   links:
     homepage: https://github.com/witx98/homebrew-test-logchange
   copyright: "2025 Mateusz Witkowski"
@@ -19,33 +19,38 @@ release:
     token: "{{GITHUB_TOKEN}}"
 
 distributions:
-  darwin_arm64:
-    type: BINARY
-    artifacts:
-      - path: "bins/app-darwinarm64.zip"
-        platform: osx-aarch_64
-  darwin_x86_64:
-    type: BINARY
-    artifacts:
-      - path: "bins/app-darwinx64.zip"
-        platform: osx-x86_64
-  linux_x86_64:
+  app:
     type: BINARY
     artifacts:
       - path: "bins/app-linuxx64.zip"
         platform: linux-x86_64
+        extraProperties:
+          matrixname: linuxx64
+          graalVMNativeImage: "true"
+      - path: "bins/app-darwinarm64.zip"
+        platform: osx-aarch_64
+        extraProperties:
+          matrixname: darwinarm64
+          graalVMNativeImage: "true"
+      - path: "bins/app-darwinx64.zip"
+        platform: osx-x86_64
+        extraProperties:
+          matrixname: darwinx64
+          graalVMNativeImage: "true"
 
 packagers:
   brew:
     active: ALWAYS
-    formulaName: app-runner
+    formulaName: App
+    multiPlatform: true
     repository:
+      token: "{{GITHUB_TOKEN}}"
       owner: witx98
       name: homebrew-test-logchange
     commitAuthor:
       name: witx98
       email: witxdev@gmail.com
-    downloadUrl: "https://github.com/witx98/homebrew-test-logchange/releases/download/{{projectVersion}}/app-{{platform}}{{platformArch}}.zip"
+    downloadUrl: "https://github.com/witx98/homebrew-test-logchange/releases/download/{{projectVersion}}/app-{{matrixname}}.zip"
     extraProperties:
       install: |
-        bin.install "bins/app-{{platform}}{{platformArch}}/app-{{projectVersion}}-runner"  # Ekstrahuje plik z folderu 'bins' w ZIP-ie
+        bin.install "bins/app-{{matrixname}}/app-runner"  # Ekstrahuje plik z folderu 'bins' w ZIP-ie
