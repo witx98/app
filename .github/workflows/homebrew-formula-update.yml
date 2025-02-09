@@ -22,6 +22,6 @@ jobs:
           tap: witx98/homebrew-test-logchange
           # Nazwa formuły – plik logchange.rb
           no_fork: false
-          formula: app
+          formula: logchange
           # Automatycznie pobiera tag z release (np. "1.16.8")
           tag: ${{ github.ref_name }}
