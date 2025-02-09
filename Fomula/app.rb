@@ -1,6 +1,6 @@
 # Generated with JReleaser 1.16.0 at 2025-02-05T21:28:49.96030669+01:00
 
-class Logchange < Formula
+class App < Formula
   desc "A CLI tool for changelogs"
   homepage "https://github.com/witx98/homebrew-test-logchange"
   version "1.0.10"
