@@ -104,10 +104,6 @@ jobs:
         with:
           path: ./bins
 
-      - name: List artifacts 1
-        run: |
-          tree ./bins
-
       - name: Package artifacts
         run: for d in ./bins/*/; do zip -r "./bins/$(basename "$d").zip" "$d"; done
 
@@ -139,9 +135,3 @@ jobs:
           # Cannot use GITHUB_TOKEN because of:
           # https://github.com/orgs/community/discussions/27028
           GITHUB_TOKEN: ${{ secrets.WITX_PAT_TOKEN }}
-
-      - name: List current dir
-        run: ls -l
-
-      - name: Set up JReleaser
-        uses: jreleaser/release-action@v2
