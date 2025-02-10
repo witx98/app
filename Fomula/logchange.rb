@@ -4,7 +4,7 @@ class Logchange < Formula
   desc "A CLI tool for changelogs"
   homepage "https://github.com/logchange/logchange"
   version "1.16.7"
-  license "APACHE-2.0"
+  license "Apache-2.0"
 
 
   if OS.linux? && Hardware::CPU.intel?

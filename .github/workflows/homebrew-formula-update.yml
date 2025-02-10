@@ -21,7 +21,7 @@ jobs:
           # Nazwa repozytorium tapu, np. twoj-login/homebrew-logchange
           tap: witx98/homebrew-test-logchange
           # Nazwa formuły – plik logchange.rb
-          no_fork: false
           formula: logchange
+          no_fork: false
           # Automatycznie pobiera tag z release (np. "1.16.8")
           tag: ${{ github.ref_name }}
