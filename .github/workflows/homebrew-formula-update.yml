@@ -19,7 +19,7 @@ jobs:
           user_name: "witx98"
           user_email: "witxdev@gmail.com"
           # Nazwa repozytorium tapu, np. twoj-login/homebrew-logchange
-          tap: witx98/homebrew-test-logchange
+          tap: witx98/homebrew-logchange
           # Nazwa formuły – plik logchange.rb
           formula: logchange
           no_fork: false
