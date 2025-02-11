@@ -85,7 +85,7 @@ jobs:
       - name: Upload binaries
         uses: actions/upload-artifact@v4
         with:
-          name: app-${{ matrix.platform }}
+          name: app-${{ github.ref_name }}-${{ matrix.platform }}
           path: |
             target/app*
             !target/app*jar
