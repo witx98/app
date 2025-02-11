@@ -1,14 +1,13 @@
 package org.acme;
 
-import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Parameters;
 
-@Command(name = "greeting", mixinStandardHelpOptions = true)
+@Command(name = "greeting", versionProvider = AppVersionProvider.class, mixinStandardHelpOptions = true)
 public class GreetingCommand implements Runnable {
 
     @Parameters(paramLabel = "<name>", defaultValue = "picocli",
-        description = "Your name.")
+            description = "Your name.")
     String name;
 
     @Override
