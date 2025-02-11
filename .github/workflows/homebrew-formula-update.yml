@@ -1,16 +1,39 @@
-#name: Aktualizacja formuły Homebrew
-#
-#on:
-#  release:
-#    types: [released]
-#
-#jobs:
-#  bump:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: Checkout repozytorium tapu
-#        uses: actions/checkout@v4
-#
+name: Homebrew formulae update
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  bump:
+    name: Check artifacts hashes
+    runs-on: ${{ matrix.runs-on }}
+    strategy:
+      matrix:
+        include:
+          - name: "Linux x86_64"
+            base: linux
+            runs-on: ubuntu-24.04
+            platform: linuxx64
+
+          - name: "macOS x86_64"
+            base: macos
+            runs-on: macos-13
+            platform: darwinx64
+
+          - name: "macOS ARM64"
+            base: macos
+            runs-on: macos-14
+            platform: darwinarm64
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Print hash
+        run: |
+          SHA=$(curl -sL "https://github.com/witx98/homebrew-test-logchange/releases/download/${{ github.ref_name }}/app-${{ github.ref_name }}-${{ matrix.platform }}.zip" | shasum -a 256 | cut -d " " -f 1)
+          echo "${{ matrix.platform }} SHA256: $SHA"
+
 #      - name: Aktualizuj formułę Homebrew
 #        uses: dawidd6/action-homebrew-bump-formula@v4
 #        with:
