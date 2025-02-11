@@ -34,18 +34,18 @@ jobs:
           SHA=$(curl -sL "https://github.com/witx98/homebrew-test-logchange/releases/download/${{ github.ref_name }}/app-${{ github.ref_name }}-${{ matrix.platform }}.zip" | shasum -a 256 | cut -d " " -f 1)
           echo "${{ matrix.platform }} SHA256: $SHA"
 
-#      - name: Aktualizuj formułę Homebrew
-#        uses: dawidd6/action-homebrew-bump-formula@v4
-#        with:
-#          # Token personalny z uprawnieniami public_repo; ustaw w sekcji Secrets o nazwie HOMEBREW_BUMP_TOKEN
-#          token: ${{ secrets.WITX_PAT_TOKEN }}
-#          user_name: "witx98"
-#          user_email: "witxdev@gmail.com"
-#          # Nazwa repozytorium tapu, np. twoj-login/homebrew-logchange
-#          tap: witx98/homebrew-app
-#          # Nazwa formuły – plik logchange.rb
-#          formula: app
-#          no_fork: false
-#          # Automatycznie pobiera tag z release (np. "1.16.8")
-#          tag: ${{ github.ref_name }}
-#          message:
+      - name: Update formula
+        uses: dawidd6/action-homebrew-bump-formula@v4
+        with:
+          # Token personalny z uprawnieniami public_repo; ustaw w sekcji Secrets o nazwie HOMEBREW_BUMP_TOKEN
+          token: ${{ secrets.WITX_PAT_TOKEN }}
+          user_name: "witx98"
+          user_email: "witxdev@gmail.com"
+          # Nazwa repozytorium tapu, np. twoj-login/homebrew-logchange
+          tap: witx98/homebrew-app
+          # Nazwa formuły – plik logchange.rb
+          formula: app
+          no_fork: false
+          # Automatycznie pobiera tag z release (np. "1.16.8")
+          tag: ${{ github.ref_name }}
+          message: Updating tap formula for ${{ github.ref_name }} version on ${{ matrix.platform }}
