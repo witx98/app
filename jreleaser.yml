@@ -1,10 +1,7 @@
 project:
   name: homebrew-test-logchange
-  description: A CLI tool for Linux
-  longDescription: |
-    This is an open-source CLI tool.
-  license: APACHE-2.0
-  version: 1.0.10
+  description: A CLI tool for managing changelogs
+  license: Apache-2.0
   links:
     homepage: https://github.com/witx98/homebrew-test-logchange
   copyright: "2025 Mateusz Witkowski"
@@ -15,8 +12,8 @@ release:
   github:
     owner: witx98
     name: homebrew-test-logchange
-    tagName: "{{projectVersion}}"
-    token: "{{GITHUB_TOKEN}}"
+    skipTag: true
+    skipRelease: true
 
 distributions:
   app:
@@ -25,32 +22,29 @@ distributions:
       - path: "bins/app-linuxx64.zip"
         platform: linux-x86_64
         extraProperties:
-          matrixname: linuxx64
-          graalVMNativeImage: "true"
+          matrixName: linuxx64
+          graalVMNativeImage: true
       - path: "bins/app-darwinarm64.zip"
         platform: osx-aarch_64
         extraProperties:
-          matrixname: darwinarm64
-          graalVMNativeImage: "true"
+          matrixName: darwinarm64
+          graalVMNativeImage: true
       - path: "bins/app-darwinx64.zip"
         platform: osx-x86_64
         extraProperties:
-          matrixname: darwinx64
-          graalVMNativeImage: "true"
+          matrixName: darwinx64
+          graalVMNativeImage: true
 
 packagers:
   brew:
     active: ALWAYS
-    formulaName: App
+    formulaName: app
+    templateDirectory: distribution/brew
     multiPlatform: true
     repository:
-      token: "{{GITHUB_TOKEN}}"
       owner: witx98
-      name: homebrew-test-logchange
+      name: homebrew-app
     commitAuthor:
       name: witx98
       email: witxdev@gmail.com
-    downloadUrl: "https://github.com/witx98/homebrew-test-logchange/releases/download/{{projectVersion}}/app-{{matrixname}}.zip"
-    extraProperties:
-      install: |
-        bin.install "bins/app-{{matrixname}}/app-runner"  # Ekstrahuje plik z folderu 'bins' w ZIP-ie
+    downloadUrl: "https://github.com/witx98/homebrew-test-logchange/releases/download/#{version}/app-{{matrixName}}.zip"

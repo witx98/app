@@ -80,7 +80,7 @@ jobs:
         name: Upload binaries
         uses: actions/upload-artifact@v4
         with:
-          name: app-${{ github.ref_name }}-${{ matrix.platform }}
+          name: app-${{ matrix.platform }}
           path: |
             target/app*
             !target/app*jar
@@ -130,3 +130,10 @@ jobs:
           # Cannot use GITHUB_TOKEN because of:
           # https://github.com/orgs/community/discussions/27028
           GITHUB_TOKEN: ${{ secrets.WITX_PAT_TOKEN }}
+
+      - name: Update distributions
+        uses: jreleaser/release-action@v2
+        env:
+          JRELEASER_PROJECT_VERSION: ${{ github.ref_name }}
+          JRELEASER_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JRELEASER_HOMEBREW_GITHUB_TOKEN: ${{ secrets.WITX_PAT_TOKEN }}
