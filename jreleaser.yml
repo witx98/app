@@ -2,34 +2,36 @@ project:
   name: homebrew-test-logchange
   description: A CLI tool for managing changelogs
   license: Apache-2.0
+#  version: 1.1.6 # Required only for local tests
   links:
     homepage: https://github.com/witx98/homebrew-test-logchange
-  copyright: "2025 Mateusz Witkowski"
+  inceptionYear: 2025
+  stereotype: CLI
+  vendor: witx98
   authors:
-    - witx98
+    - Mateusz Witkowski
 
 release:
   github:
-    owner: witx98
-    name: homebrew-test-logchange
     skipTag: true
     skipRelease: true
+#    token: "{{GITHUB_TOKEN}}" # Required only for local tests
 
 distributions:
   app:
     type: BINARY
     artifacts:
-      - path: "bins/app-linuxx64.zip"
+      - path: "bins/{{distributionName}}-linuxx64.zip"
         platform: linux-x86_64
         extraProperties:
           matrixName: linuxx64
           graalVMNativeImage: true
-      - path: "bins/app-darwinarm64.zip"
+      - path: "bins/{{distributionName}}-darwinarm64.zip"
         platform: osx-aarch_64
         extraProperties:
           matrixName: darwinarm64
           graalVMNativeImage: true
-      - path: "bins/app-darwinx64.zip"
+      - path: "bins/{{distributionName}}-darwinx64.zip"
         platform: osx-x86_64
         extraProperties:
           matrixName: darwinx64
@@ -38,7 +40,7 @@ distributions:
 packagers:
   brew:
     active: ALWAYS
-    formulaName: app
+    formulaName: App
     templateDirectory: distribution/brew
     multiPlatform: true
     repository:
@@ -47,4 +49,4 @@ packagers:
     commitAuthor:
       name: witx98
       email: witxdev@gmail.com
-    downloadUrl: "https://github.com/witx98/homebrew-test-logchange/releases/download/#{version}/app-{{matrixName}}.zip"
+    downloadUrl: "https://github.com/witx98/{{projectName}}/releases/download/#{version}/{{distributionName}}-{{matrixName}}.zip"

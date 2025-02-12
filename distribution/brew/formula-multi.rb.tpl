@@ -1,6 +1,3 @@
-
-# {{jreleaserCreationStamp}}
-
 class {{brewFormulaName}} < Formula
   desc "{{projectDescription}}"
   homepage "{{projectLinkHomepage}}"
@@ -19,9 +16,9 @@ class {{brewFormulaName}} < Formula
     elsif OS.mac? && Hardware::CPU.intel?
       os_arch = "darwinx64"
     else
-      puts "Invalid system or architecture"
+      puts "Unsupported system or architecture!"
     end
-    chmod 0755, "#{libexec}/app-#{version}-#{os_arch}/app-#{version}-runner"
-    bin.write_exec_script "#{libexec}/app-#{version}-#{os_arch}/app-#{version}-runner"
+    chmod 0755, "#{libexec}/app-#{os_arch}/app-#{version}-runner"
+    bin.write_exec_script "#{libexec}/app-#{os_arch}/app-#{version}-runner"
   end
 end
