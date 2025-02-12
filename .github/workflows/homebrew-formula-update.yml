@@ -49,3 +49,4 @@ jobs:
           # Automatycznie pobiera tag z release (np. "1.16.8")
           tag: ${{ github.ref_name }}
           message: Updating tap formula for ${{ github.ref_name }} version on ${{ matrix.platform }}
+          force: true
