@@ -15,7 +15,7 @@ jobs:
 
       - name: Download .zip assets from latest release
         run: |
-          gh release download latest --repo ${{ github.repository }} --pattern "*.zip" --dir ./bins
+          gh release download --pattern "*.zip" --dir ./bins
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
