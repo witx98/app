@@ -1,6 +1,6 @@
 project:
   name: app
-  description: A CLI tool for managing changelogs
+  description: CLI tool for managing changelogs
   license: Apache-2.0
 #  version: 1.1.6 # Required only for local tests
   links:
