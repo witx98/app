@@ -23,7 +23,7 @@ class {{brewFormulaName}} < Formula
   end
 
   test do
-    output = shell_output("#{bin}/{{distributionExecutableName}} --version")
+    output = shell_output("#{bin}/{{distributionExecutableName}}-#{version}-runner --version")
     assert_match version, output
   end
 end
