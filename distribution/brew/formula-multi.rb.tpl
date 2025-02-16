@@ -21,4 +21,9 @@ class {{brewFormulaName}} < Formula
     chmod 0755, "#{libexec}/{{distributionName}}-#{os_arch}/{{distributionName}}-#{version}-runner"
     bin.write_exec_script "#{libexec}/{{distributionName}}-#{os_arch}/{{distributionName}}-#{version}-runner"
   end
+
+  test do
+    output = shell_output("#{bin}/{{distributionExecutableName}} --version")
+    assert_match version, output
+  end
 end
