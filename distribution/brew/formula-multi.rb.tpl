@@ -18,7 +18,7 @@ class {{brewFormulaName}} < Formula
     else
       puts "Unsupported system or architecture!"
     end
-    chmod 0755, "#{libexec}/app-#{os_arch}/app-#{version}-runner"
-    bin.write_exec_script "#{libexec}/app-#{os_arch}/app-#{version}-runner"
+    chmod 0755, "#{libexec}/{{distributionName}}-#{os_arch}/{{distributionName}}-#{version}-runner"
+    bin.write_exec_script "#{libexec}/{{distributionName}}-#{os_arch}/{{distributionName}}-#{version}-runner"
   end
 end
