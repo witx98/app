@@ -24,6 +24,6 @@ class {{brewFormulaName}} < Formula
 
   test do
     output = shell_output("#{bin}/{{distributionExecutableName}}-#{version}-runner --version")
-    assert_match version, output
+    assert_match version.to_s, output
   end
 end
